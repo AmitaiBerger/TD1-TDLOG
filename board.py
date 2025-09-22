@@ -34,18 +34,29 @@ class InvalidBoard:
     """
     The exception raised when board data is invalid.
     """
-
-    # TODO
     pass
 
 
 class Board:
-    # TODO
-
     def __init__(
         self,
         stations: list[tuple[StationNumber, list[StationKind]]],
         connections: list[tuple[StationNumber, StationNumber, ConnectionMode]],
     ) -> None:
-        # TODO
-        pass
+        if not f(stations,connections):
+            raise InvalidBoard
+        else:
+            self.stations=stations
+            self.connections=connections
+
+
+def f(stations,connections):
+    bool=True
+    for i in range(len(connections)):
+        if not connections[i][0]!=connections[i][1] and 0<connections[i][0]< 200 and 0<connections[i][1]<200 and connections[i][2] in stations[i][0][1] and connections[i][2] in stations[i][1][1]:
+            bool= False
+            break
+    return bool
+        
+
+

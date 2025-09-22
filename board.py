@@ -51,6 +51,9 @@ class Board:
 
 
 def f(stations,connections):
+    """
+    We check if the stations are in the connections list and if the connection mode matches 
+    """
     bool=True
     for i in range(len(connections)):
         if not connections[i][0]!=connections[i][1] and 0<connections[i][0]< 200 and 0<connections[i][1]<200 and connections[i][2] in stations[i][0][1] and connections[i][2] in stations[i][1][1]:
